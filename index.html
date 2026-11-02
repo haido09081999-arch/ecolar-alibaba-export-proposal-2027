@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đề án Xuất khẩu ECOLAR qua Alibaba.com 2027 — Bưởi Da Xanh, Phân Bón Hữu Cơ &amp; Thiết Bị Nông Nghiệp</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root{
+    --ink:#17211d; --ink-soft:#41504a; --muted:#6d7a74;
+    --forest:#14312b; --forest-2:#1d443b; --clay:#c2643f; --clay-soft:#f3e2d8;
+    --gold:#c8a24a; --sage:#7d9c8c; --cream:#faf7f1; --sand:#f1ebe0; --line:#e3dccf;
+    --ok:#3f8f66; --warn:#c98a2e; --bad:#b4453a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Lexend',sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;font-size:15px}
+  a{color:var(--clay);text-decoration:none;transition:color .2s}
+  a:hover{text-decoration:underline;color:#a04a27}
+
+  /* shell */
+  .app{display:flex;min-height:100vh}
+  .side{width:268px;flex:0 0 268px;background:var(--forest);color:#e9efe9;position:sticky;top:0;height:100vh;overflow-y:auto;padding:26px 18px 40px}
+  .side .brand{font-size:1.05rem;font-weight:800;letter-spacing:.14em;color:#fff}
+  .side .brand span{color:var(--gold)}
+  .side .sub{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#93a89f;margin:6px 0 22px}
+  .side nav a{display:flex;gap:9px;align-items:flex-start;padding:7px 9px;border-radius:8px;color:#cfdad4;font-size:.79rem;line-height:1.35;margin-bottom:2px}
+  .side nav a:hover{background:rgba(255,255,255,.07);color:#fff;text-decoration:none}
+  .side nav a i{width:14px;margin-top:2px;color:var(--gold);font-size:.72rem}
+  .side .side-foot{margin-top:22px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);font-size:.68rem;color:#8fa39a}
+
+  /* main */
+  .main{flex:1;min-width:0;padding:0 0 60px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 34px}
+
+  .hero{background:linear-gradient(135deg,#12302a 0%,#1d443b 55%,#2a5a4c 100%);color:#fff;padding:58px 0 46px;position:relative;overflow:hidden}
+  .hero:after{content:"";position:absolute;right:-90px;top:-90px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(200,162,74,.28),transparent 65%)}
+  .kicker{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
+  .hero h1{font-size:2.05rem;line-height:1.24;margin:14px 0 14px;font-weight:800;max-width:900px}
+  .hero p.lead{font-size:.95rem;color:#d7e2db;max-width:820px}
+  .hero .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:5px 11px;border-radius:999px;font-size:.71rem;color:#eaf1ec}
+  .chip b{color:#fff}
+
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:-26px;position:relative;z-index:2}
+  .kpi{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 15px;box-shadow:0 8px 22px rgba(20,49,43,.07)}
+  .kpi .n{font-size:1.32rem;font-weight:800;color:var(--forest);letter-spacing:-.02em}
+  .kpi .l{font-size:.7rem;color:var(--muted);margin-top:2px;line-height:1.35}
+
+  section.sec{padding:44px 0 6px;border-top:1px solid var(--line);margin-top:34px}
+  section.sec:first-of-type{border-top:none}
+  .sec-h{font-size:1.32rem;font-weight:800;color:var(--forest);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;line-height:1.3}
+  .sec-h i{color:var(--clay);font-size:1rem}
+  .sec-h small{display:block;font-size:.72rem;font-weight:500;color:var(--muted);letter-spacing:.02em;margin-top:3px}
+  .sec > p,.sec .wrap > p{color:var(--ink-soft);margin:14px 0;font-size:.92rem}
+  h3.sub{font-size:1rem;font-weight:700;color:var(--forest);margin:26px 0 10px;display:flex;gap:8px;align-items:center}
+  h3.sub i{color:var(--sage);font-size:.85rem}
+  h4.mini-h{font-size:.9rem;font-weight:700;margin:14px 0 8px;color:var(--ink)}
+
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0}
+  .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0}
+  .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+  .box{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 18px}
+  .box h4{font-size:.88rem;font-weight:700;margin-bottom:8px;display:flex;gap:7px;align-items:center}
+  .box p{font-size:.84rem;color:var(--ink-soft)}
+  .box ul{margin:8px 0 0 0;list-style:none}
+  .box li{font-size:.83rem;color:var(--ink-soft);padding-left:16px;position:relative;margin-bottom:6px}
+  .box li:before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--sage)}
+
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:14px 0}
+  .card .tagline{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .card h4{font-size:1rem;margin:5px 0 8px;color:var(--forest)}
+  .card p{font-size:.86rem;color:var(--ink-soft)}
+  .pill{display:inline-block;font-size:.66rem;padding:3px 9px;border-radius:999px;background:var(--clay-soft);color:#8d3f22;font-weight:600;margin-right:6px}
+  .pill.gray{background:var(--sand);color:#6a5a45}
+  .pill.green{background:#e2f2e9;color:#236e47}
+
+  .callout{border-left:4px solid var(--clay);background:#fff;border-radius:0 10px 10px 0;padding:14px 16px;margin:16px 0;font-size:.85rem;color:var(--ink-soft)}
+  .callout b{color:var(--ink)}
+  .callout.blue{border-left-color:var(--sage)}
+  .callout.warn{border-left-color:var(--warn);background:#fffaf0}
+  .callout h4{color:var(--ink);margin-bottom:5px;font-size:.86rem;display:flex;gap:7px;align-items:center}
+
+  table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:14px 0;font-size:.8rem}
+  th{background:var(--forest);color:#fff;text-align:left;padding:10px 11px;font-weight:600;font-size:.73rem;letter-spacing:.03em;text-transform:uppercase;vertical-align:bottom}
+  td{padding:10px 11px;border-top:1px solid var(--line);color:var(--ink-soft);vertical-align:top}
+  tbody tr:nth-child(even) td{background:#fcfaf5}
+  tbody tr:hover td{background:#f7f2e7}
+  td b{color:var(--ink)}
+
+  .btn-ali{background:#ff6a00;color:#fff!important;padding:4px 9px;border-radius:5px;font-size:.7rem;font-weight:600;display:inline-flex;align-items:center;gap:4px}
+  .btn-ali:hover{background:#e05b00;text-decoration:none}
+
+  .chart-wrap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;margin:16px 0}
+  .chart-wrap h4{font-size:.85rem;color:var(--forest);margin-bottom:2px}
+  .chart-wrap .cap{font-size:.7rem;color:var(--muted);margin-bottom:10px}
+  .chart-box{position:relative;height:250px}
+
+  .steps{counter-reset:s;margin:14px 0}
+  .step{display:flex;gap:12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .step:last-child{border-bottom:none}
+  .step .n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--clay);color:#fff;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .step .b{font-size:.85rem;color:var(--ink-soft)}
+  .step .b b{color:var(--ink)}
+
+  .tl{position:relative;margin:18px 0 0 8px;padding-left:22px;border-left:2px solid var(--sand)}
+  .tl .item{position:relative;margin-bottom:16px}
+  .tl .item:before{content:"";position:absolute;left:-29px;top:5px;width:11px;height:11px;border-radius:50%;background:var(--clay);border:2px solid var(--cream)}
+  .tl .when{font-size:.68rem;font-weight:700;letter-spacing:.08em;color:var(--clay);text-transform:uppercase}
+  .tl .what{font-size:.86rem;color:var(--ink-soft);margin-top:2px}
+  .tl .what b{color:var(--ink)}
+
+  /* pricing selector */
+  .sel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;margin:16px 0}
+  .sel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .opt{position:relative;border:1px solid var(--line);border-radius:10px;padding:12px 13px;cursor:pointer;transition:.15s;background:#fdfbf7}
+  .opt:hover{border-color:var(--clay)}
+  .opt input{position:absolute;opacity:0;pointer-events:none}
+  .opt .nm{font-size:.82rem;font-weight:700;color:var(--forest)}
+  .opt .pr{font-size:.76rem;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums}
+  .opt.on{border-color:var(--clay);box-shadow:0 0 0 3px rgba(194,100,63,.13);background:#fff}
+  .sel-actions{display:flex;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap}
+  .btn{border:1px solid var(--clay);background:var(--clay);color:#fff;border-radius:8px;padding:8px 14px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit}
+  .btn.ghost{background:transparent;color:var(--clay)}
+  .out{font-size:.82rem;color:var(--ink-soft)}
+  .out b{color:var(--forest);font-size:.95rem}
+
+  footer{background:var(--forest);color:#c9d7cf;margin-top:50px;padding:34px 0}
+  footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  footer h5{color:#fff;font-size:.85rem;margin-bottom:6px}
+  footer p,footer li{font-size:.74rem;color:#a9bbb1;line-height:1.6}
+  footer ul{list-style:none}
+
+  @media (max-width:1020px){
+    .side{display:none}
+    .kpis{grid-template-columns:1fr 1fr;margin-top:20px}
+    .g2,.g3,.g4,.sel-grid{grid-template-columns:1fr}
+    .hero h1{font-size:1.55rem}
+    .wrap{padding:0 18px}
+  }
+  @media print{.side{display:none}.app{display:block}}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <aside class="side">
+    <div class="brand">ECOLAR<span>.</span></div>
+    <div class="sub">Đề án Xuất khẩu 2027</div>
+    <nav>
+      <a href="#sec1"><i class="fa-solid fa-magnifying-glass-chart"></i> 1. Chẩn đoán hiện trạng</a>
+      <a href="#sec2"><i class="fa-solid fa-compass"></i> 2. Định vị xuất khẩu</a>
+      <a href="#sec3"><i class="fa-solid fa-layer-group"></i> 3. Ba trụ cột sản phẩm</a>
+      <a href="#sec4"><i class="fa-solid fa-recycle"></i> 4. Chuỗi giá trị 2 chiều</a>
+      <a href="#sec5"><i class="fa-solid fa-boxes-stacked"></i> 5. Bảng giá FOB &amp; MOQ</a>
+      <a href="#sec6"><i class="fa-solid fa-earth-asia"></i> 6. Thị trường toàn cầu</a>
+      <a href="#sec7"><i class="fa-solid fa-certificate"></i> 7. Chứng nhận &amp; Tiêu chuẩn</a>
+      <a href="#sec8"><i class="fa-solid fa-folder-open"></i> 8. Hồ sơ lên sàn</a>
+      <a href="#sec9"><i class="fa-solid fa-diagram-project"></i> 9. Lộ trình 12 tháng</a>
+      <a href="#sec10"><i class="fa-solid fa-gauge-high"></i> 10. Vận hành &amp; Nhân sự</a>
+      <a href="#sec11"><i class="fa-solid fa-chalkboard-user"></i> 11. Đào tạo 1-1</a>
+      <a href="#sec12"><i class="fa-solid fa-tags"></i> 12. Gói cước &amp; Ngân sách</a>
+      <a href="#sec13"><i class="fa-solid fa-scale-balanced"></i> 13. Benchmark đối thủ</a>
+      <a href="#sec14"><i class="fa-solid fa-chart-line"></i> 14. ROI &amp; Quản trị rủi ro</a>
+    </nav>
+    <div class="side-foot">Chiến lược xuất khẩu B2B Alibaba.com · Phiên bản 2027</div>
+  </aside>
+
+  <main class="main">
+    <header class="hero">
+      <div class="wrap">
+        <div class="kicker">Đề án chiến lược · Alibaba.com B2B Export 2027</div>
+        <h1>ECOLAR — Giải pháp Nông nghiệp Xanh Tuần hoàn:<br>Từ Dinh dưỡng Đất đến Nông sản Thượng hạng Xuất khẩu</h1>
+        <p class="lead">Xây dựng kênh xuất khẩu B2B chính ngạch qua Alibaba.com: <b>Bưởi da xanh Đồng Nai</b> là gương mặt thương hiệu mở đường, <b>Phân bón hữu cơ sinh học</b> là động cơ dòng tiền 12 tháng giữ nhịp, <b>Thiết bị &amp; Nông sản phụ trợ</b> là mắt xích hoàn thiện hệ sinh thái.</p>
+        <div class="meta">
+          <span class="chip"><b>3</b> Trụ cột sản phẩm</span>
+          <span class="chip"><b>1</b> Chuỗi tuần hoàn khép kín</span>
+          <span class="chip"><b>40</b> RFQ chủ động / tháng</span>
+          <span class="chip">Thời gian hoàn vốn <b>4–6 tháng</b></span>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <div class="kpis">
+        <div class="kpi"><div class="n">3.299 $</div><div class="l">gói Alibaba Guarantee Basic (Tặng 2 Sao + $1.000 KWA)</div></div>
+        <div class="kpi"><div class="n">480 RFQ</div><div class="l">lượt báo giá chủ động mỗi năm từ người mua quốc tế</div></div>
+        <div class="kpi"><div class="n">1,75–2,50 $</div><div class="l">khung giá FOB Bưởi da xanh (USD/kg theo bậc)</div></div>
+        <div class="kpi"><div class="n">240–320 $</div><div class="l">khoảng trống giá Phân hữu cơ vi sinh (USD/tấn)</div></div>
+      </div>
+    </div>
+
+    <!-- CH1 -->
+    <section id="sec1" class="sec">
+      <div class="wrap">
+        <h2 class="sec-h"><i class="fa-solid fa-magnifying-glass-chart"></i> Chương 1: Chẩn đoán hiện trạng Ecolar <small>Nền tảng năng lực thực tế để bán ra thị trường quốc tế</small></h2>
+
+        <p>Ecolar sở hữu lợi thế nền tảng vững chắc trong chuỗi cung ứng nông nghiệp hữu cơ tại Việt Nam. Để bước ra thị trường quốc tế, doanh nghiệp cần chuyển hóa từ mô hình bán lẻ nội địa sang cấu trúc thương mại B2B xuất khẩu tiêu chuẩn.</p>
+
+        <div class="g2">
+          <div class="box">
+            <h4><i class="fa-solid fa-circle-check" style="color:var(--ok)"></i> Nền tảng đã có</h4>
+            <ul>
+              <li><b>Vùng trồng bưởi lõi tại Đồng Nai:</b> Quy mô tập trung, kết hợp liên kết thu mua bao tiêu kỹ thuật với các hợp tác xã địa phương.</li>
+              <li><b>Công nghệ sản xuất phân bón vi sinh:</b> Dòng phân bón rắn (Mạch Đất 2kg/25kg) và phân bón lỏng sinh học (Dòng Chảy Dịu Lành 1L/5L/20L).</li>
+              <li><b>Mô hình tuần hoàn BSFly:</b> Xử lý phụ phẩm hữu cơ, tái tạo dinh dưỡng đất tự nhiên — câu chuyện ESG chuẩn quốc tế.</li>
+              <li><b>Chất lượng quả bưởi đạt chuẩn:</b> Vỏ xanh bóng, tép hồng, độ đường Brix 11–13°, tỷ lệ múi đều và mọng nước.</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h4><i class="fa-solid fa-triangle-exclamation" style="color:var(--warn)"></i> Khoảng trống cần hoàn thiện cho B2B</h4>
+            <ul>
+              <li><b>Chưa có bảng giá FOB theo container / tấn:</b> Hiện website chỉ niêm yết giá bán lẻ nội địa (VND/bao, VND/can).</li>
+              <li><b>Chưa số hóa hồ sơ kiểm định quốc tế:</b> Cần chứng thực mã số vùng trồng (PUC), mã cơ sở đóng gói (PHC) và COA phân bón.</li>
+              <li><b>Chưa cấu trúc phễu bán hàng theo mùa:</b> Cần công khai rõ ràng phân bón hữu cơ làm sản phẩm gối vụ 12 tháng khi bưởi chưa vào vụ.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH2 -->
+    <section id="sec2" class="sec">
+      <div class="wrap">
+        <h2 class="sec-h"><i class="fa-solid fa-compass"></i> Chương 2: Định vị thương hiệu &amp; Tuyên ngôn giá trị <small>Nói với người mua B2B bằng thứ họ kiểm chứng được</small></h2>
+
+        <div class="callout blue">
+          <h4><i class="fa-solid fa-quote-left"></i> Tuyên ngôn định vị chiến lược (Brand Positioning Statement)</h4>
+          <b>“ECOLAR — Vietnamese Farm Produce &amp; Organic Inputs from One Closed Loop.”</b><br>
+          <span style="opacity:.9;font-size:.85rem">Bản tiếng Việt: “ECOLAR — Giải pháp Nông nghiệp Xanh Tuần hoàn: Chuẩn hóa từ Dinh dưỡng Đất đến Nông sản Thượng hạng Xuất khẩu.”</span>
+        </div>
+
+        <p>Buyer B2B không tin vào những lời quảng cáo sáo rỗng ("ngon", "sạch", "tự nhiên"). Họ chỉ ký hợp đồng khi thấy <b>bằng chứng vùng trồng thực tế</b> và <b>nhà cung ứng làm chủ được công nghệ đầu vào</b>.</p>
+
+        <div class="g3">
+          <div class="box">
+            <h4>Trụ 1: Traceable (Truy xuất)</h4>
+            <p>Minh bạch vùng trồng Đồng Nai, nhật ký canh tác vi sinh, kiểm định dư lượng thuốc BVTV bằng 0.</p>
+          </div>
+          <div class="box">
+            <h4>Trụ 2: Circular (Tuần hoàn)</h4>
+            <p>Cây bưởi được nuôi dưỡng bằng chính nguồn phân bón hữu cơ sinh học do Ecolar nghiên cứu và sản xuất.</p>
+          </div>
+          <div class="box">
+            <h4>Trụ 3: Sustainable (Bền vững)</h4>
+            <p>Đáp ứng trọn vẹn tiêu chuẩn ESG, giảm thiểu phát thải carbon, hướng đến canh tác nông nghiệp tái sinh.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH3 -->
+    <section id="sec3" class="sec">
+      <div class="wrap">
+        <h2 class="sec-h"><i class="fa-solid fa-layer-group"></i> Chương 3: Ba trụ cột sản phẩm xuất khẩu <small>Thế chân kiềng đảm bảo doanh thu và thương hiệu</small></h2>
+
+        <div class="g3">
+          <div class="card" style="border-top:4px solid var(--forest)">
+            <div class="tagline">Gương mặt thương hiệu</div>
+            <h4>1. Bưởi Da Xanh Xuất Khẩu</h4>
+            <p><b>Đặc tính:</b> Vỏ xanh, ruột hồng mọng nước, Brix 11–13°, size 1.2–1.8kg/quả. Bảo quản lạnh 45–60 ngày.</p>
+            <p><b>Vai trò:</b> Kéo lưu lượng truy cập (traffic), tạo uy tín và mở đường vào các chuỗi siêu thị quốc tế.</p>
+            <p style="margin-top:8px"><span class="pill green">Tính mùa vụ</span> <span class="pill gray">Container 20ft/40ft</span></p>
+          </div>
+
+          <div class="card" style="border-top:4px solid var(--clay)">
+            <div class="tagline">Động cơ dòng tiền</div>
+            <h4>2. Phân Bón Hữu Cơ Sinh Học</h4>
+            <p><b>Đặc tính:</b> Phân hữu cơ vi sinh dạng viên nén (Mạch Đất) &amp; Phân bón lá sinh học (Dòng Chảy Dịu Lành).</p>
+            <p><b>Vai trò:</b> Chạy dòng tiền đều đặn 12 tháng/năm, không phụ thuộc mùa vụ bưởi; cung cấp sỉ cho các trang trại.</p>
+            <p style="margin-top:8px"><span class="pill">Bán quanh năm</span> <span class="pill gray">Bao 25kg / Jumbo 1T</span></p>
+          </div>
+
+          <div class="card" style="border-top:4px solid var(--sage)">
+            <div class="tagline">Mắt xích trọn gói</div>
+            <h4>3. Thiết Bị &amp; Nông Sản Phụ Trợ</h4>
+            <p><b>Đặc tính:</b> Hệ thống tưới nhỏ giọt/phun sương, túi bọc trái chống côn trùng, nông sản sấy giữ nhịp.</p>
+            <p><b>Vai trò:</b> Tăng giá trị trung bình đơn hàng (AOV), giữ chân khách hàng mua trọn gói giải pháp canh tác.</p>
+            <p style="margin-top:8px"><span class="pill blue">Combo vật tư</span> <span class="pill gray">Cross-selling</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH4 -->
+    <section id="sec4" class="sec">
+      <div class="wrap">
+        <h2 class="sec-h"><i class="fa-solid fa-recycle"></i> Chương 4: Mô hình Chuỗi giá trị 2 chiều khép kín <small>Kiểm soát chất lượng gốc &amp; mở rộng quy mô không thâm dụng vốn</small></h2>
+
+        <p>Mô hình "Flywheel 2 Chiều" là vũ khí cạnh tranh độc quyền của Ecolar khi đàm phán với buyer quốc tế:</p>
+
+        <div class="g2">
+          <div class="box">
+            <h4><i class="fa-solid fa-arrow-right-long" style="color:var(--clay)"></i> Chiều đi — Cung ứng giải pháp đầu vào</h4>
+            <ul>
+              <li>Ecolar cung cấp <b>Phân bón hữu cơ sinh học + Thiết bị tưới + Quy trình kỹ thuật</b> cho mạng lưới hợp tác xã và hộ nông dân liên kết tại Đồng Nai.</li>
+              <li>Chuyển giao công nghệ chăm sóc không lạm dụng hóa chất, kiểm soát độ ẩm và dinh dưỡng đất.</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h4><i class="fa-solid fa-arrow-left-long" style="color:var(--ok)"></i> Chiều về — Bao tiêu nông sản chuẩn xuất khẩu</h4>
+            <ul>
+              <li>Ecolar bao tiêu thu mua toàn bộ trái bưởi đạt chuẩn (kích thước, độ ngọt, không vết chích côn trùng).</li>
+              <li>Đóng gói, dán tem truy xuất nguồn gốc và xuất khẩu chính ngạch mang thương hiệu Ecolar.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout">
+          <h4><i class="fa-solid fa-shield-halved"></i> Lợi ích kinh tế kép</h4>
+          Doanh nghiệp <b>không cần đầu tư hàng trăm tỷ mua đất</b> mà vẫn sở hữu sản lượng bưởi hàng trăm tấn đồng đều chất lượng, đồng thời tạo ra đầu ra ổn định ngay tại chỗ cho nhà máy sản xuất phân bón.
+        </div>
+      </div>
+    </section>
+
+    <!-- CH5 -->
+    <section id="sec5" class="sec">
+      <div class="wrap">
+        <h2 class="sec-h"><i class="fa-solid fa-boxes-stacked"></i> Chương 5: Bảng giá FOB &amp; MOQ xuất khẩu tham chiếu <small>Cấu trúc giá theo bậc khối lượng cho kênh B2B</small></h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th style="width:18%">Nhóm sản phẩm</th>
+              <th style="width:24%">Quy cách đóng gói</th>
+              <th style="width:20%">Bậc số lượng (MOQ)</th>
+              <th style="width:18%">Giá FOB đề xuất</th>
+              <th>Mục tiêu chiến lược</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="3"><b>Bưởi Da Xanh Tươi</b></td>
+              <td rowspan="3">Thùng carton 5 lớp (10–12kg/thùng)<br>Size 1.2–1.8kg/quả</td>
+              <td>1.000 – 4.999 kg</td>
+              <td><b>2,30 – 2,50 USD/kg</b></td>
+              <td>Bậc đơn hàng mẫu thử nghiệm (Air/LCL)</td>
+            </tr>
+            <tr>
+              <td>5.000 – 19.999 kg</td>
+              <td><b>2,00 – 2,20 USD/kg</b></td>
+              <td>Bậc đơn hàng vừa, cạnh tranh trực tiếp</td>
+            </tr>
+            <tr>
+              <td>&ge; 20.000 kg (Cont 40ft)</td>
+              <td><b>1,75 – 1,95 USD/kg</b></td>
+              <td>Bậc tối ưu cước vận chuyển đường biển</td>
+            </tr>
+            <tr>
+              <td rowspan="2"><b>Phân Hữu Cơ Vi Sinh</b><br><span style="font-size:.72rem;color:var(--muted)">Mạch Đất (Dạng viên)</span></td>
+              <td rowspan="2">Bao 25kg / Pallet 1 tấn<br>Hoặc bao Jumbo 1.000kg</td>
+              <td>5 – 24 tấn</td>
+              <td><b>280 – 320 USD/tấn</b></td>
+              <td>Bán cho trang trại quy mô vừa &amp; đại lý</td>
+            </tr>
+            <tr>
+              <td>&ge; 25 tấn (FCL)</td>
+              <td><b>240 – 270 USD/tấn</b></td>
+              <td>Cạnh tranh phân khúc hữu cơ chất lượng cao</td>
+            </tr>
+            <tr>
+              <td><b>Phân Bón Sinh Học Lỏng</b></td>
+              <td>Can 20L (4 can/thùng carton)</td>
+              <td>&ge; 200 Lít</td>
+              <td><b>3,20 – 3,80 USD/Lít</b></td>
+              <td>Biên lợi nhuận cao, khó bị so sánh giá</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CH6 -->
+    <section id="sec6" class="sec">
+      <div class="wrap">
+        <h2 class="sec-h"><i class="fa-solid fa-earth-asia"></i> Chương 6: Bản đồ thị trường xuất khẩu mục tiêu <small>Lộ trình thâm nhập theo rào cản kỹ thuật</small></h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th style="width:16%">Thị trường</th>
+              <th style="width:26%">Đối tượng người mua</th>
+              <th style="width:30%">Yêu cầu kiểm soát then chốt</th>
+              <th>Mức độ ưu tiên</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>🇰🇷 Hàn Quốc</b></td>
+              <td>Nhà nhập khẩu trái cây nhiệt đới, chuỗi mart</td>
+              <td>Mã số vùng trồng (PUC) đã đăng ký, chiếu xạ/xử lý hơi nước nóng, kiểm dịch thực vật nghiêm ngặt.</td>
+              <td><span class="pill green">Ưu tiên 1 (Bưởi)</span></td>
+            </tr>
+            <tr>
+              <td><b>🇺🇸 Hoa Kỳ</b></td>
+              <td>Nhà phân phối thực phẩm Á Châu, hệ thống siêu thị</td>
+              <td>Đăng ký cơ sở FDA, chứng chỉ kiểm dịch APHIS, chiếu xạ theo quy định chuẩn thương mại.</td>
+              <td><span class="pill green">Ưu tiên 1 (Bưởi)</span></td>
+            </tr>
+            <tr>
+              <td><b>🇪🇺 Châu Âu (EU)</b></td>
+              <td>Doanh nghiệp nông nghiệp hữu cơ, nhà phân phối vật tư</td>
+              <td>Kiểm soát nghiêm ngặt MRLs (dư lượng hóa chất), ưu tiên cao cho phân bón hữu cơ sinh học đạt chuẩn ESG.</td>
+              <td><span class="pill">Ưu tiên 1 (Phân bón)</span></td>
+            </tr>
+            <tr>
+              <td><b>🇦🇪 Trung Đông</b></td>
+              <td>Tập đoàn phân phối nông sản, chuỗi Horeca</td>
+              <td>Chứng nhận Halal (cho sản phẩm chế biến), yêu cầu cao về hình thức trái đẹp và độ bền bảo quản.</td>
+              <td><span class="pill gray">Ưu tiên 2</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CH7 -->
+    <section id="sec7" class="sec">
+      <div class="wrap">
+        <h2 class="sec-h"><i class="fa-solid fa-certificate"></i> Chương 7: Chứng nhận &amp; Tiêu chuẩn B2B <small>Hồ sơ kỹ thuật bắt buộc để thông quan và chốt hợp đồng</small></h2>
+
+        <div class="g2">
+          <div class="box">
+            <h4><i class="fa-solid fa-lemon" style="color:var(--ok)"></i> Nhóm chứng chỉ Bưởi Tươi</h4>
+            <ul>
+              <li><b>Mã số vùng trồng (PUC):</b> Điều kiện tiên quyết để xuất khẩu chính ngạch sang Mỹ, Hàn, EU.</li>
+              <li><b>Mã cơ sở đóng gói (PHC):</b> Đảm bảo quy trình xử lý sau thu hoạch, làm sạch và khử khuẩn.</li>
+              <li><b>Giấy chứng nhận Kiểm dịch Thực vật (Phytosanitary Certificate):</b> Cấp theo từng lô hàng xuất khẩu.</li>
+              <li><b>VietGAP / GlobalGAP:</b> Bảo chứng quy trình canh tác an toàn và bền vững.</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h4><i class="fa-solid fa-seedling" style="color:var(--clay)"></i> Nhóm chứng chỉ Phân bón</h4>
+            <ul>
+              <li><b>Giấy phép lưu hành &amp; sản xuất phân bón:</b> Bằng chứng pháp lý hợp chuẩn từ Bộ Nông nghiệp.</li>
+              <li><b>Phiếu kết quả phân tích thành phần (COA):</b> Định lượng hàm lượng hữu cơ &gt; 45%, tỷ lệ C/N, NPK hữu hiệu.</li>
+              <li><b>Bảng chỉ dẫn an toàn hóa chất (MSDS):</b> Chứng minh 100% nguồn gốc sinh học an toàn cho đường biển.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH8 -->
+    <section id="sec8" class="sec">
+      <div class="wrap">
+        <h2 class="sec-h"><i class="fa-solid fa-folder-open"></i> Chương 8: Hồ sơ đăng ký gian hàng Alibaba.com <small>Chuẩn bị pháp lý trước khi kích hoạt</small></h2>
+
+        <div class="g2">
+          <div class="box">
+            <h4><i class="fa-solid fa-id-card"></i> 5 Nhóm chứng từ bắt buộc</h4>
+            <ul>
+              <li><b>Giấy phép kinh doanh (GPKD):</b> Đăng ký ngành nghề nông nghiệp, phân bón.</li>
+              <li><b>Giấy chứng nhận quyền sử dụng đất / Hợp đồng thuê xưởng:</b> Khớp địa chỉ đăng ký.</li>
+              <li><b>Hóa đơn cước điện thoại công ty 3 tháng gần nhất.</b></li>
+              <li><b>Giấy xác nhận tài khoản ngân hàng doanh nghiệp.</b></li>
+              <li><b>CCCD 2 mặt của người đại diện pháp luật.</b></li>
+            </ul>
+          </div>
+          <div class="box">
+            <h4><i class="fa-solid fa-shield-halved"></i> Quy chuẩn chuẩn bị hồ sơ</h4>
+            <ul>
+              <li>Scan màu chất lượng cao từ bản gốc, không cắt góc, không chỉnh sửa.</li>
+              <li>Tên pháp nhân và mã số thuế khớp 100% trên toàn bộ hệ thống chứng từ.</li>
+              <li>Chuẩn bị sẵn bản dịch tiếng Anh công chứng phục vụ xác minh quốc tế.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH9 -->
+    <section id="sec9" class="sec">
+      <div class="wrap">
+        <h2 class="sec-h"><i class="fa-solid fa-diagram-project"></i> Chương 9: Lộ trình vận hành 12 tháng năm 2027 <small>Từ thiết lập gian hàng đến bùng nổ doanh số</small></h2>
+
+        <div class="tl">
+          <div class="item">
+            <div class="when">Tháng 1–3 · Thiết lập &amp; March Expo</div>
+            <div class="what">Hoàn tất kích hoạt tài khoản 2 Sao; đăng tải 100% SKU chuẩn SEO; dựng Minisite 3D vùng trồng Đồng Nai; bùng nổ chiến dịch <b>March Expo</b> thu hút 200+ lượt tiếp cận.</div>
+          </div>
+          <div class="item">
+            <div class="when">Tháng 4–6 · Chuyển đổi đơn mẫu &amp; Đón tiếp khách</div>
+            <div class="what">Xử lý 40 RFQ/tháng; gửi <b>5–8 đơn hàng mẫu</b>; đón tiếp ít nhất <b>1–2 đoàn khách quốc tế</b> đến thăm vườn và xưởng thực tế tại Đồng Nai (On-site Audit).</div>
+          </div>
+          <div class="item">
+            <div class="when">Tháng 7–9 · Mùa bưởi chính vụ &amp; Super September</div>
+            <div class="what">Thu hoạch chính vụ bưởi da xanh; tham gia chiến dịch lớn nhất năm <b>Super September</b>; chốt các hợp đồng xuất khẩu container lạnh FCL sang Hàn Quốc và Trung Đông.</div>
+          </div>
+          <div class="item">
+            <div class="when">Tháng 10–12 · Kích hoạt động cơ phân bón &amp; Ký hợp đồng năm</div>
+            <div class="what">Chuyển trọng tâm sang <b>Phân bón hữu cơ sinh học</b> giữ vững dòng tiền khi bưởi hết vụ; tổng kết năm đầu và đàm phán hợp đồng cung ứng năm tiếp theo.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH10 -->
+    <section id="sec10" class="sec">
+      <div class="wrap">
+        <h2 class="sec-h"><i class="fa-solid fa-gauge-high"></i> Chương 10: Vận hành sàn &amp; Cơ cấu nhân sự <small>Nhịp làm việc đảm bảo tỷ lệ chuyển đổi cao</small></h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th style="width:16%">Chu kỳ</th>
+              <th style="width:40%">Nhiệm vụ trọng tâm</th>
+              <th style="width:26%">Chỉ số đo lường (KPI)</th>
+              <th>Vị trí phụ trách</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Hằng ngày</b></td>
+              <td>Kiểm tra tin nhắn Inquiries, gửi báo giá RFQ, theo dõi vận đơn mẫu.</td>
+              <td>Thời gian phản hồi &le; 8 giờ (Hướng tới &le; 2 giờ).</td>
+              <td>Sales B2B trực sàn</td>
+            </tr>
+            <tr>
+              <td><b>Hằng tuần</b></td>
+              <td>Đăng 3–5 bài viết/video ngắn về vùng trồng, quy trình ủ phân; rà soát giá đối thủ.</td>
+              <td>Điểm chất lượng bài đăng &ge; 4.5/5.0.</td>
+              <td>Content &amp; Marketing</td>
+            </tr>
+            <tr>
+              <td><b>Hằng tháng</b></td>
+              <td>Gửi trọn vẹn 40 báo giá RFQ; tối ưu từ khóa KWA; review tỷ lệ chuyển đổi.</td>
+              <td>Số lượng cơ hội thương mại &ge; 25 leads/tháng.</td>
+              <td>Account Manager</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CH11 -->
+    <section id="sec11" class="sec">
+      <div class="wrap">
+        <h2 class="sec-h"><i class="fa-solid fa-chalkboard-user"></i> Chương 11: Chương trình Đào tạo 1-1 &amp; Chuyển giao <small>Xây dựng năng lực vận hành B2B nội bộ</small></h2>
+
+        <div class="g2">
+          <div class="box">
+            <h4><i class="fa-solid fa-chalkboard"></i> Buổi 1: Kỹ thuật vận hành gian hàng (90 phút)</h4>
+            <ul>
+              <li>Tổng quan giao diện quản trị Alibaba My Alibaba, phân quyền tài khoản phụ.</li>
+              <li>Kỹ thuật đăng sản phẩm chuẩn SEO nông sản (tiêu đề 128 ký tự, thuộc tính chuyên sâu).</li>
+              <li>Thiết lập bảng giá FOB theo bậc số lượng và chính sách mẫu thử.</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h4><i class="fa-solid fa-comments-dollar"></i> Buổi 2: Đàm phán RFQ &amp; Chốt đơn B2B (90 phút)</h4>
+            <ul>
+              <li>Phương pháp phân loại buyer thật / đối thủ dò giá.</li>
+              <li>Soạn thảo báo giá chuyên nghiệp 1 trang (Quotation Sheet) kèm thông số kiểm định.</li>
+              <li>Kỹ thuật đàm phán điều khoản thanh toán LC / TT an toàn trong xuất khẩu nông sản.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH12 -->
+    <section id="sec12" class="sec">
+      <div class="wrap">
+        <h2 class="sec-h"><i class="fa-solid fa-tags"></i> Chương 12: Bảng giá dịch vụ &amp; Bộ chọn ngân sách <small>Dự toán chi phí đầu tư gian hàng năm 2027</small></h2>
+
+        <p>Bảng giá tham chiếu các gói cước thành viên chính thức từ Alibaba.com (Quy đổi theo tỷ giá 1 USD = 26.000 VND):</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th style="width:25%">Cấu hình gói</th>
+              <th style="width:18%">Phí niêm yết (USD)</th>
+              <th style="width:22%">Quy đổi (VND)</th>
+              <th>Quyền lợi nổi bật</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Basic (SAA Pro)</b></td>
+              <td>$2.299 / năm</td>
+              <td>≈ 59.774.000 ₫</td>
+              <td>40 RFQ/tháng, 20 sản phẩm trưng bày, phù hợp kiểm chứng thị trường.</td>
+            </tr>
+            <tr style="background:#f7f0e6">
+              <td><b style="color:var(--forest)">Guarantee Basic (Khuyên dùng)</b></td>
+              <td><b>$3.299 / năm</b></td>
+              <td><b>≈ 85.774.000 ₫</b></td>
+              <td><b>Tặng 2 Sao (6 tháng), $1.000 ngân sách KWA, cam kết &ge;25 cơ hội kinh doanh.</b></td>
+            </tr>
+            <tr>
+              <td><b>Guarantee L3+</b></td>
+              <td>$5.299 / năm</td>
+              <td>≈ 137.774.000 ₫</td>
+              <td>Tặng 3 Sao, ưu tiên hiển thị hàng đầu tại các thị trường trọng điểm.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="sel">
+          <h4 class="mini-h">Bộ tính dự toán ngân sách tương tác</h4>
+          <div class="sel-grid">
+            <label class="opt"><input type="radio" name="pkg" value="Basic|$2.299|≈ 59.774.000 ₫"><span class="nm">Basic · 1 năm</span><span class="pr">$2.299</span></label>
+            <label class="opt on"><input type="radio" name="pkg" value="Guarantee Basic|$3.299|≈ 85.774.000 ₫" checked><span class="nm">Guarantee Basic (Đề xuất)</span><span class="pr">$3.299</span></label>
+            <label class="opt"><input type="radio" name="pkg" value="Guarantee L3+|$5.299|≈ 137.774.000 ₫"><span class="nm">Guarantee L3+</span><span class="pr">$5.299</span></label>
+          </div>
+          <div class="sel-actions">
+            <button class="btn ghost" type="button" id="clearPkg">Xóa lựa chọn</button>
+            <div class="out" id="pkgOut">Đã chọn: <b>Guarantee Basic</b> — $3.299 USD ≈ <b>85.774.000 ₫</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH13 -->
+    <section id="sec13" class="sec">
+      <div class="wrap">
+        <h2 class="sec-h"><i class="fa-solid fa-scale-balanced"></i> Chương 13: Benchmark đối thủ cùng ngành <small>Dữ liệu khảo sát thực tế trên Alibaba.com</small></h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th style="width:22%">Nhà cung cấp</th>
+              <th style="width:12%">Quốc gia</th>
+              <th style="width:20%">Sản phẩm chủ lực</th>
+              <th style="width:22%">Khung giá chào sàn</th>
+              <th>Điểm mạnh &amp; Khoảng trống</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>SUNRISE INS CO., LTD</b></td>
+              <td>Việt Nam (6 năm)</td>
+              <td>Bưởi da xanh ruột hồng Bến Tre</td>
+              <td>15.6 NOK/kg (Lô 1T) &rarr; 9.45 NOK/kg (&ge;100T)</td>
+              <td>Giá giảm sâu ở lô lớn nhưng thiếu câu chuyện vùng trồng khép kín.</td>
+            </tr>
+            <tr>
+              <td><b>SOUTH MEKONG AGRI</b></td>
+              <td>Việt Nam (4 năm)</td>
+              <td>Bưởi da xanh Tiền Giang / Long An</td>
+              <td>2.11 USD/kg (21T) &rarr; 1.97 USD/kg (&ge;42T)</td>
+              <td>Giá cạnh tranh cho container lớn, lead time 15 ngày.</td>
+            </tr>
+            <tr>
+              <td><b>DAI HUNG PHAT JSC</b></td>
+              <td>Việt Nam (5 năm)</td>
+              <td>Bưởi da xanh chuẩn VietGAP</td>
+              <td>€2.09/kg (1T) &rarr; €1.73/kg (&ge;10T)</td>
+              <td>Tỷ lệ phản hồi &le;4h, chuẩn dịch vụ 5 sao.</td>
+            </tr>
+            <tr>
+              <td><b>NCC Phân bón Trung Quốc</b></td>
+              <td>Trung Quốc (9 năm)</td>
+              <td>Phân bón hữu cơ hợp chất (Bio Organic)</td>
+              <td>360 – 420 USD/tấn (MOQ 25T)</td>
+              <td>Định vị cao, bán theo hiệu quả cải tạo đất.</td>
+            </tr>
+            <tr>
+              <td><b>NCC Phân bón Trung Quốc</b></td>
+              <td>Trung Quốc (2 năm)</td>
+              <td>Phân bón nông nghiệp phổ thông</td>
+              <td>170 – 190 USD/tấn (MOQ 25T)</td>
+              <td>Đáy giá thị trường, chất lượng vi sinh thấp.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="chart-wrap">
+          <h4>Biểu đồ Dải giá Phân bón Hữu cơ Quốc tế (USD/tấn)</h4>
+          <div class="cap">Ecolar định vị ở khoảng trống vàng 240–320 USD/tấn: Vượt trội về chất lượng vi sinh so với hàng giá rẻ nhưng cạnh tranh hơn hàng cao cấp.</div>
+          <div class="chart-box"><canvas id="benchChart"></canvas></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CH14 -->
+    <section id="sec14" class="sec">
+      <div class="wrap">
+        <h2 class="sec-h"><i class="fa-solid fa-chart-line"></i> Chương 14: Phân tích ROI &amp; Quản trị rủi ro <small>Bài toán hoàn vốn và kiểm soát an toàn vận hành</small></h2>
+
+        <div class="g2">
+          <div class="box">
+            <h4><i class="fa-solid fa-calculator" style="color:var(--ok)"></i> Bài toán hoàn vốn đầu tư (ROI)</h4>
+            <ul>
+              <li><b>Chi phí đầu tư năm đầu:</b> 3.299 USD (≈ 85.774.000 ₫).</li>
+              <li><b>Điểm hòa vốn:</b> Chỉ cần xuất khẩu thành công <b>01 container 20ft bưởi da xanh (10–12 tấn)</b> hoặc <b>20 tấn phân bón hữu cơ</b>.</li>
+              <li><b>Thời gian hoàn vốn dự kiến:</b> <b>4 – 6 tháng</b> kể từ ngày kích hoạt gian hàng và tham gia March Expo.</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h4><i class="fa-solid fa-triangle-exclamation" style="color:var(--bad)"></i> Quản trị 3 rủi ro cốt lõi</h4>
+            <ul>
+              <li><b>Rủi ro mùa vụ bưởi:</b> Luôn kích hoạt dòng tiền từ Phân bón hữu cơ và Nông sản khô trong 8 tháng ngoài vụ chính.</li>
+              <li><b>Rủi ro kiểm dịch:</b> Liên kết chặt chẽ với cơ quan cấp mã PUC và trạm kiểm dịch trước khi đóng hàng.</li>
+              <li><b>Rủi ro trôi dạt RFQ:</b> Phân công nhân sự trực chat 8/24h, tuyệt đối không để tin nhắn quá 12h.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div>
+          <h5>ECOLAR — Đề án Xuất khẩu Nông nghiệp &amp; Phân bón Hữu cơ 2027</h5>
+          <p>Tài liệu nội bộ phục vụ chiến lược thương mại điện tử quốc tế B2B (Alibaba.com).</p>
+        </div>
+        <div>
+          <h5>Mục lục nhanh</h5>
+          <ul>
+            <li><a href="#sec2" style="color:#cfe0d6">Định vị</a> · <a href="#sec3" style="color:#cfe0d6">Sản phẩm</a> · <a href="#sec4" style="color:#cfe0d6">Chuỗi 2 chiều</a></li>
+            <li><a href="#sec5" style="color:#cfe0d6">Bảng giá FOB</a> · <a href="#sec12" style="color:#cfe0d6">Ngân sách</a> · <a href="#sec14" style="color:#cfe0d6">ROI</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<script>
+  const bench = document.getElementById('benchChart');
+  if (bench) {
+    new Chart(bench, {
+      type: 'bar',
+      data: {
+        labels: ['Hàng phổ thông TQ', 'Khoảng trống ECOLAR', 'Amino Acid cao cấp TQ', 'Hữu cơ đóng bao Mỹ'],
+        datasets: [{
+          label: 'USD/tấn',
+          data: [180, 280, 390, 2250],
+          backgroundColor: ['#a9c3b5','#c2643f','#7d9c8c','#14312b'],
+          borderRadius: 6,
+          maxBarThickness: 70
+        }]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => c.parsed.y + ' USD/tấn' } } },
+        scales: {
+          y: { beginAtZero: true, ticks: { color: '#6d7a74', callback: v => v + ' $' }, grid: { color: '#eee7da' } },
+          x: { ticks: { color: '#6d7a74', font: { size: 11 } }, grid: { display: false } }
+        }
+      }
+    });
+  }
+
+  (function () {
+    const opts = Array.from(document.querySelectorAll('.opt'));
+    const out = document.getElementById('pkgOut');
+    const clear = document.getElementById('clearPkg');
+    function reset() {
+      opts.forEach(o => { o.classList.remove('on'); const i = o.querySelector('input'); if (i) i.checked = false; });
+      if (out) out.textContent = 'Chưa xác định — chọn một cấu hình để xem ngân sách.';
+    }
+    opts.forEach(o => {
+      o.addEventListener('click', e => {
+        e.preventDefault();
+        const input = o.querySelector('input');
+        opts.forEach(x => x.classList.remove('on'));
+        o.classList.add('on');
+        if (input) input.checked = true;
+        const [name, usd, vnd] = (input ? input.value : '').split('|');
+        if (out) out.innerHTML = 'Đã chọn: <b>' + name + '</b> — ' + usd + ' USD ' + vnd;
+      });
+    });
+    if (clear) clear.addEventListener('click', reset);
+  })();
+</script>
+</body>
+</html>
